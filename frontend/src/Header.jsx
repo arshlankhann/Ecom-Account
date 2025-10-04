@@ -119,7 +119,7 @@ export default function EcommerceServices() {
                 Courses
                 <span className="text-xs">▼</span>
               </button>
-              <button className="w-full text-left px-3 py-2 text-green-600 bg-green-50 rounded-md flex items-center justify-between font-medium">
+              <button className="w-full text-left px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md flex items-center justify-between transition-colors">
                 Services
                 <span className="text-xs">▼</span>
               </button>
@@ -130,7 +130,7 @@ export default function EcommerceServices() {
               <a href="#" className="block px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors">
                 About
               </a>
-              <a href="#" className="block px-3 py-2 text-green-600 hover:bg-gray-50 rounded-md transition-colors" onClick={(e) => {
+              <a href="#" className="block px-3 py-2 text-green-600 bg-green-50 rounded-md transition-colors font-medium" onClick={(e) => {
                 e.preventDefault();
                 const el = document.getElementById('start-selling-now');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
