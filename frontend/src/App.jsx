@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './header';
+import Header from './header.jsx';
 
 import growthImg from '../public/growth.webp';
 import askExpert from '../public/ask-the-expert.webp';
