@@ -2,101 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './header';
 
-// Navigation Component
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <nav className="bg-white shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-gray-800">eCom</span>
-                <span className="text-2xl font-bold text-green-600 ml-1">Account</span>
-                <div className="ml-2 w-8 h-8 bg-green-600 rounded flex items-center justify-center">
-                  <span className="text-white font-bold">🛒</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#" className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
-              <div className="relative group">
-                <button className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium flex items-center">
-                  Blog
-                  <span className="ml-1">↓</span>
-                </button>
-              </div>
-              <div className="relative group">
-                <button className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium flex items-center">
-                  Courses
-                  <span className="ml-1">↓</span>
-                </button>
-              </div>
-              <div className="relative group">
-                <button className="text-green-600 px-3 py-2 text-sm font-medium flex items-center">
-                  Services
-                  <span className="ml-1">↓</span>
-                </button>
-              </div>
-              <div className="relative group">
-                <button className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium flex items-center">
-                  Tools
-                  <span className="ml-1">↓</span>
-                </button>
-              </div>
-              <a href="#" className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">About</a>
-              <a href="#" className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Contact</a>
-            </div>
-          </div>
-          
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-green-600 focus:outline-none focus:text-green-600"
-            >
-              <span className="sr-only">Open main menu</span>
-              <div className="w-6 h-6">
-                <span className="block w-full h-0.5 bg-current transform transition duration-300"></span>
-                <span className="block w-full h-0.5 bg-current transform transition duration-300 mt-1"></span>
-                <span className="block w-full h-0.5 bg-current transform transition duration-300 mt-1"></span>
-              </div>
-            </button>
-          </div>
-          
-          <div className="hidden md:block">
-            <button className="text-gray-500 hover:text-gray-700">
-              <span className="sr-only">Search</span>
-              <div className="w-5 h-5">🔍</div>
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-};
-
-// Hero Section Component
-const HeroSection = () => {
-  return (
-    <section className="bg-white py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            E-COMMERCE ACCOUNT MANAGEMENT SERVICES
-          </h1>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            We manage several marketplaces such as Flipkart, Amazon, Snapdeal, Shopclues, Paytm, Meesho, Glowroad, and more.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
+import growthImg from '../public/growth.webp';
+import askExpert from '../public/ask-the-expert.webp';
+import tailoredSolutions from '../public/problem-solving.webp';
 
 
 
@@ -147,7 +55,7 @@ const WhyChooseUs = () => {
           </p>
           <div className="w-16 h-1 bg-orange-400 mx-auto mt-8"></div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="bg-white border border-orange-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
@@ -173,7 +81,7 @@ const PricingPlans = ({ pricingData }) => {
       id: 1,
       name: "SOLO PLAN",
       originalPrice: "₹2,500",
-      price: "₹2,000",
+      price: "₹1,999",
       period: "PER MONTH",
       isPopular: false,
       features: [
@@ -247,17 +155,16 @@ const PricingPlans = ({ pricingData }) => {
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className={`rounded-lg overflow-hidden ${
-                plan.isPopular
+              className={`rounded-lg overflow-hidden ${plan.isPopular
                   ? 'bg-lime-600 text-white transform scale-105'
                   : 'bg-white text-gray-800'
-              } shadow-lg`}
+                } shadow-lg`}
             >
               <div className="p-8 text-center">
                 <h3 className={`text-lg font-semibold mb-4 ${plan.isPopular ? 'text-white' : 'text-gray-500'}`}>
                   {plan.name}
                 </h3>
-                
+
                 <div className="mb-4">
                   <div className={`text-sm line-through ${plan.isPopular ? 'text-gray-200' : 'text-gray-400'}`}>
                     {plan.originalPrice}
@@ -280,11 +187,10 @@ const PricingPlans = ({ pricingData }) => {
                 </div>
 
                 <button
-                  className={`w-full py-3 px-6 rounded-full font-semibold ${
-                    plan.isPopular
+                  className={`w-full py-3 px-6 rounded-full font-semibold ${plan.isPopular
                       ? 'bg-white text-lime-600 hover:bg-gray-100'
                       : 'bg-lime-600 text-white hover:bg-lime-700'
-                  } transition-colors duration-300`}
+                    } transition-colors duration-300`}
                 >
                   Get Started
                 </button>
@@ -300,7 +206,7 @@ const PricingPlans = ({ pricingData }) => {
         <div className="bg-white rounded-lg p-8 text-center mb-8">
           <div className="text-lime-600 text-lg mb-4">💚 Wait! We Have An Additional Discount For You 💚</div>
           <div className="text-gray-600 mb-6">"Longer the Duration, Bigger the Discounts"</div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm mb-6">
             <div className="flex items-center justify-center">
               <span className="text-lime-600 mr-2">💚</span>
@@ -376,7 +282,7 @@ const AddOnPackages = () => {
             <div key={index} className="bg-white rounded-lg p-6 shadow-lg">
               <div className="text-center mb-6">
                 <h3 className="text-lg font-semibold text-gray-500 mb-4">{pkg.title}</h3>
-                
+
                 <div className="mb-4">
                   {pkg.originalPrice && (
                     <div className="text-sm line-through text-gray-400">{pkg.originalPrice}</div>
@@ -419,17 +325,17 @@ const HowWeWork = () => {
     {
       title: "Sales Growth",
       description: "We focus on boosting sales, driving higher conversions, increasing revenue, and ensuring business success in the competitive ecommerce marketplace by implementing strategic solutions tailored to your needs.",
-      icon: "📊"
+      icon: <img src={growthImg} alt="Growth" className="w-12 h-12" />
     },
     {
       title: "Expert Services",
       description: "We provide expert services like seller account management, product listing optimization, and targeted advertising to elevate your presence and performance on ecommerce platforms, driving growth and visibility.",
-      icon: "💡"
+      icon: <img src={askExpert} alt="Expert" className="w-12 h-12" />
     },
     {
       title: "Tailored Solutions",
       description: "Our approach is meticulously tailored to align with your specific needs and goals, ensuring the implementation of efficient and effective strategies that not only drive success but also maximize your potential in the competitive ecommerce landscape.",
-      icon: "🎯"
+      icon: <img src={tailoredSolutions} alt="Tailored Solutions" className="w-12 h-12" />
     }
   ];
 
@@ -446,9 +352,9 @@ const HowWeWork = () => {
           <div className="w-16 h-1 bg-orange-400 mx-auto mt-8"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {steps.map((step, index) => (
-            <div key={index} className="bg-white border border-orange-200 rounded-lg p-8 text-center hover:shadow-lg transition-shadow duration-300">
+            <div key={index} className="bg-[#fcf7f2] border border-orange-200 rounded-lg p-8 text-center hover:shadow-lg hover:scale-103 hover:bg-white transition-transform duration-300 ease-in-out ">
               <div className="w-24 h-24 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <span className="text-3xl">{step.icon}</span>
               </div>
@@ -482,14 +388,6 @@ const ContactForm = () => {
     });
   };
 
-  const refreshCaptcha = () => {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    for (let i = 0; i < 3; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    setCaptchaText(result);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -502,7 +400,7 @@ const ContactForm = () => {
         },
         body: JSON.stringify(formData),
       });
-      
+
       if (response.ok) {
         setSubmitMessage('Thank you for your message! We\'ll get back to you soon.');
         setFormData({ name: '', email: '', phone: '', message: '', captcha: '' });
@@ -516,14 +414,14 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-20" style={{background: 'linear-gradient(135deg, #f5deb3 0%, #deb887 100%)'}}>
+  <section id="start-selling-now" className="py-20" style={{ background: 'linear-gradient(135deg, #f5deb3 0%, #deb887 100%)' }}>
       <div className="max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-lg p-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-red-600 mb-4">Start Selling Now</h2>
             <p className="text-gray-600 text-sm">Thank You for Enquiry Us, we will Touch with you as soon as possible</p>
           </div>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <input
@@ -537,7 +435,7 @@ const ContactForm = () => {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-50 placeholder-gray-500"
               />
             </div>
-            
+
             <div>
               <input
                 type="email"
@@ -550,7 +448,7 @@ const ContactForm = () => {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-50 placeholder-gray-500"
               />
             </div>
-            
+
             <div className="flex gap-2">
               <input
                 type="text"
@@ -569,7 +467,7 @@ const ContactForm = () => {
                 className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-50 placeholder-gray-500"
               />
             </div>
-            
+
             <div>
               <textarea
                 id="message"
@@ -582,38 +480,13 @@ const ContactForm = () => {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-50 placeholder-gray-500 resize-none"
               ></textarea>
             </div>
-            
+
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <div 
-                  className="bg-gray-200 px-4 py-2 rounded border text-xl font-bold text-gray-700 select-none"
-                  style={{fontFamily: 'monospace', letterSpacing: '2px'}}
-                >
-                  {captchaText}
-                </div>
-                <button
-                  type="button"
-                  onClick={refreshCaptcha}
-                  className="px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300"
-                >
-                  Refresh
-                </button>
+
               </div>
             </div>
-            
-            <div>
-              <input
-                type="text"
-                id="captcha"
-                name="captcha"
-                placeholder="Enter Captcha"
-                value={formData.captcha}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-50 placeholder-gray-500"
-              />
-            </div>
-            
+
             <div className="pt-4">
               <button
                 type="submit"
@@ -624,7 +497,7 @@ const ContactForm = () => {
               </button>
             </div>
           </form>
-          
+
           {submitMessage && (
             <div className="mt-4 p-4 rounded-lg bg-green-100 text-green-800 text-center">
               {submitMessage}
@@ -651,7 +524,7 @@ const Footer = () => {
               Your trusted partner for eCommerce account management and growth solutions.
             </p>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-gray-400">
@@ -661,7 +534,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white">Advertising</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-gray-400">
@@ -671,7 +544,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white">Contact</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="text-gray-400">
@@ -681,7 +554,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; 2025 eCom Account. All rights reserved.</p>
         </div>
@@ -703,7 +576,7 @@ const App = () => {
           fetch('/api/services').then(res => res.ok ? res.json() : null).catch(() => null),
           fetch('/api/pricing').then(res => res.ok ? res.json() : null).catch(() => null)
         ]);
-        
+
         setServices(servicesRes);
         setPricing(pricingRes);
       } catch (error) {

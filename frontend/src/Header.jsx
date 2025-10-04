@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   FaFacebookF,
   FaInstagram,
@@ -7,75 +7,138 @@ import {
   FaHandshake,
   FaImage,
   FaWhatsapp,
-  FaMagnifyingGlass
+  FaMagnifyingGlass,
+  FaBars,
+  FaXmark
 } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
 import { HiOutlineUserGroup } from 'react-icons/hi';
 
 export default function EcommerceServices() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Top Bar */}
-      <div className="flex justify-between items-center px-6 py-3 bg-white border-b border-gray-200">
+      <div className="flex justify-between items-center px-4 sm:px-6 py-3 bg-white border-b border-gray-200">
         <div className="flex items-center gap-2 text-green-600">
           <MdEmail className="text-base" />
-          <span className="text-sm">ecomaccount@gmail.com</span>
+          <span className="text-sm hidden sm:inline">ecomaccount@gmail.com</span>
+          <span className="text-xs sm:hidden">Email</span>
         </div>
-        <div className="flex gap-4 text-green-600">
-          <FaFacebookF className="text-base hover:text-green-700 cursor-pointer" />
-          <FaInstagram className="text-base hover:text-green-700 cursor-pointer" />
-          <FaLinkedinIn className="text-base hover:text-green-700 cursor-pointer" />
-          <FaYoutube className="text-base hover:text-green-700 cursor-pointer" />
+        <div className="flex gap-3 sm:gap-4 text-green-600">
+          <FaFacebookF className="text-sm sm:text-base hover:text-green-700 cursor-pointer" />
+          <FaInstagram className="text-sm sm:text-base hover:text-green-700 cursor-pointer" />
+          <FaLinkedinIn className="text-sm sm:text-base hover:text-green-700 cursor-pointer" />
+          <FaYoutube className="text-sm sm:text-base hover:text-green-700 cursor-pointer" />
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-100">
-        <div className="flex items-center">
-          <div className="text-2xl font-bold">
-            <span className="text-black">e</span>
-            <span className="text-green-600">Com</span>
-            <br />
-            <span className="text-black text-xl">Account</span>
-          </div>
-          <div className="ml-3">
-            <svg width="40" height="30" viewBox="0 0 40 30" className="text-green-600">
-              <rect x="8" y="8" width="24" height="16" fill="none" stroke="currentColor" strokeWidth="2" rx="2" />
-              <path d="M8 12l8 6 8-6" fill="none" stroke="currentColor" strokeWidth="2" />
-              <circle cx="12" cy="26" r="2" fill="currentColor" />
-              <circle cx="28" cy="26" r="2" fill="currentColor" />
-              <path d="M4 4h6l4 16h18" fill="none" stroke="currentColor" strokeWidth="2" />
-            </svg>
-          </div>
-        </div>
+      <nav className="bg-white border-b border-gray-100">
+        <div className="px-4 sm:px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center">
+              <div className="text-xl sm:text-2xl font-bold">
+                <span className="text-black">e</span>
+                <span className="text-green-600">Com</span>
+                <br />
+                <span className="text-black text-lg sm:text-xl">Account</span>
+              </div>
+              <div className="ml-2 sm:ml-3">
+                <svg width="30" height="25" viewBox="0 0 40 30" className="text-green-600 sm:w-10 sm:h-8">
+                  <rect x="8" y="8" width="24" height="16" fill="none" stroke="currentColor" strokeWidth="2" rx="2" />
+                  <path d="M8 12l8 6 8-6" fill="none" stroke="currentColor" strokeWidth="2" />
+                  <circle cx="12" cy="26" r="2" fill="currentColor" />
+                  <circle cx="28" cy="26" r="2" fill="currentColor" />
+                  <path d="M4 4h6l4 16h18" fill="none" stroke="currentColor" strokeWidth="2" />
+                </svg>
+              </div>
+            </div>
 
-        <div className="flex items-center gap-8">
-          <div className="flex items-center gap-6 text-sm text-gray-700">
-            <span className="hover:text-green-600 cursor-pointer">Home</span>
-            <div className="relative group">
-              <span className="hover:text-green-600 cursor-pointer flex items-center gap-1">
-                Blog <span className="text-xs">▼</span>
-              </span>
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-8">
+              <div className="flex items-center gap-6 text-sm text-gray-700">
+                <span className="hover:text-green-600 cursor-pointer transition-colors">Home</span>
+                <div className="relative group">
+                  <span className="hover:text-green-600 cursor-pointer flex items-center gap-1 transition-colors">
+                    Blog <span className="text-xs">▼</span>
+                  </span>
+                </div>
+                <div className="relative group">
+                  <span className="hover:text-green-600 cursor-pointer flex items-center gap-1 transition-colors">
+                    Courses <span className="text-xs">▼</span>
+                  </span>
+                </div>
+                <div className="relative group">
+                  <span className="hover:text-green-600 font-medium cursor-pointer flex items-center gap-1">
+                    Services <span className="text-xs">▼</span>
+                  </span>
+                </div>
+                <div className="relative group">
+                  <span className="hover:text-green-600 cursor-pointer flex items-center gap-1 transition-colors">
+                    Tools <span className="text-xs">▼</span>
+                  </span>
+                </div>
+                <span className="hover:text-green-600 cursor-pointer transition-colors">About</span>
+                <span className="text-green-600 cursor-pointer transition-colors" onClick={() => {
+                  const el = document.getElementById('start-selling-now');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}>Contact</span>
+              </div>
+              <FaMagnifyingGlass className="text-gray-500 hover:text-green-600 cursor-pointer transition-colors" />
             </div>
-            <div className="relative group">
-              <span className="hover:text-green-600 cursor-pointer flex items-center gap-1">
-                Courses <span className="text-xs">▼</span>
-              </span>
+
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden flex items-center gap-4">
+              <FaMagnifyingGlass className="text-gray-500 hover:text-green-600 cursor-pointer transition-colors" />
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-gray-700 hover:text-green-600 focus:outline-none transition-colors"
+              >
+                {isMobileMenuOpen ? (
+                  <FaXmark className="text-xl" />
+                ) : (
+                  <FaBars className="text-xl" />
+                )}
+              </button>
             </div>
-            <div className="relative group">
-              <span className="text-green-600 font-medium cursor-pointer flex items-center gap-1">
-                Services <span className="text-xs">▼</span>
-              </span>
-            </div>
-            <div className="relative group">
-              <span className="hover:text-green-600 cursor-pointer flex items-center gap-1">
-                Tools <span className="text-xs">▼</span>
-              </span>
-            </div>
-            <span className="hover:text-green-600 cursor-pointer">About</span>
-            <span className="hover:text-green-600 cursor-pointer">Contact</span>
           </div>
-          <FaMagnifyingGlass className="text-gray-500 hover:text-green-600 cursor-pointer" />
+
+          {/* Mobile Navigation Menu */}
+          <div className={`lg:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+            <div className="py-2 space-y-2 border-t border-gray-200">
+              <a href="#" className="block px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors">
+                Home
+              </a>
+              <button className="w-full text-left px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md flex items-center justify-between transition-colors">
+                Blog
+                <span className="text-xs">▼</span>
+              </button>
+              <button className="w-full text-left px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md flex items-center justify-between transition-colors">
+                Courses
+                <span className="text-xs">▼</span>
+              </button>
+              <button className="w-full text-left px-3 py-2 text-green-600 bg-green-50 rounded-md flex items-center justify-between font-medium">
+                Services
+                <span className="text-xs">▼</span>
+              </button>
+              <button className="w-full text-left px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md flex items-center justify-between transition-colors">
+                Tools
+                <span className="text-xs">▼</span>
+              </button>
+              <a href="#" className="block px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors">
+                About
+              </a>
+              <a href="#" className="block px-3 py-2 text-green-600 hover:bg-gray-50 rounded-md transition-colors" onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById('start-selling-now');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}>
+                Contact
+              </a>
+            </div>
+          </div>
         </div>
       </nav>
 
