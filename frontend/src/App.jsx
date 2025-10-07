@@ -44,10 +44,10 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-12 sm:py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
             Why Ecom Account Is The Best eCommerce Service Provider?
           </h2>
           <p className="text-lg text-gray-600 max-w-5xl mx-auto">
@@ -56,7 +56,7 @@ const WhyChooseUs = () => {
           <div className="w-16 h-1 bg-orange-400 mx-auto mt-8"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <div key={index} className="bg-white border border-orange-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
               <div className="text-center mb-4">
@@ -100,7 +100,7 @@ const PricingPlans = ({ pricingData }) => {
       id: 2,
       name: "DUO PLAN",
       originalPrice: "₹5,000",
-      price: "₹3,600",
+      price: "₹3,499",
       period: "PER MONTH",
       isPopular: true,
       features: [
@@ -119,7 +119,7 @@ const PricingPlans = ({ pricingData }) => {
       id: 3,
       name: "TRIO PLAN",
       originalPrice: "₹7,500",
-      price: "₹5,400",
+      price: "₹4,999",
       period: "PER MONTH",
       isPopular: false,
       features: [
@@ -139,10 +139,10 @@ const PricingPlans = ({ pricingData }) => {
   const plans = pricingData || defaultPlans;
 
   return (
-    <section className="bg-gray-100 py-20">
+    <section className="bg-gray-100 py-12 sm:py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 sm:mb-4">
             OUR MONTHLY PACKAGES
           </h2>
           <p className="text-gray-500 mb-2">"Sit Back & Relax, We Are Here For You"</p>
@@ -151,13 +151,13 @@ const PricingPlans = ({ pricingData }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {plans.map((plan) => (
             <div
               key={plan.id}
               className={`rounded-lg overflow-hidden ${plan.isPopular
-                  ? 'bg-lime-600 text-white transform scale-105'
-                  : 'bg-white text-gray-800'
+                ? 'bg-lime-600 text-white transform scale-105'
+                : 'bg-white text-gray-800'
                 } shadow-lg`}
             >
               <div className="p-8 text-center">
@@ -188,9 +188,13 @@ const PricingPlans = ({ pricingData }) => {
 
                 <button
                   className={`w-full py-3 px-6 rounded-full font-semibold ${plan.isPopular
-                      ? 'bg-white text-lime-600 hover:bg-gray-100'
-                      : 'bg-lime-600 text-white hover:bg-lime-700'
+                    ? 'bg-white text-lime-600 hover:bg-gray-100'
+                    : 'bg-lime-600 text-white hover:bg-lime-700'
                     } transition-colors duration-300`}
+                  onClick={() => {
+                    const el = document.getElementById('start-selling-now');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   Get Started
                 </button>
@@ -222,7 +226,11 @@ const PricingPlans = ({ pricingData }) => {
             </div>
           </div>
 
-          <button className="bg-lime-600 text-white py-3 px-8 rounded-full font-semibold hover:bg-lime-700 transition-colors duration-300">
+          <button className="bg-lime-600 text-white py-3 px-8 rounded-full font-semibold hover:bg-lime-700 transition-colors duration-300"
+            onClick={() => {
+              const el = document.getElementById('start-selling-now');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}>
             Get Started Now!
           </button>
         </div>
@@ -266,10 +274,10 @@ const AddOnPackages = () => {
   ];
 
   return (
-    <section className="bg-gray-100 py-20">
+    <section className="bg-gray-100 py-12 sm:py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 sm:mb-4">
             ADD-ON PACKAGES
           </h2>
           <p className="text-gray-600">
@@ -277,7 +285,7 @@ const AddOnPackages = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {packages.map((pkg, index) => (
             <div key={index} className="bg-white rounded-lg p-6 shadow-lg">
               <div className="text-center mb-6">
@@ -340,10 +348,10 @@ const HowWeWork = () => {
   ];
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-12 sm:py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
             How We Work
           </h2>
           <p className="text-lg text-gray-600 max-w-4xl mx-auto">
@@ -352,7 +360,7 @@ const HowWeWork = () => {
           <div className="w-16 h-1 bg-orange-400 mx-auto mt-8"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 ">
           {steps.map((step, index) => (
             <div key={index} className="bg-[#fcf7f2] border border-orange-200 rounded-lg p-8 text-center hover:shadow-lg hover:scale-103 hover:bg-white transition-transform duration-300 ease-in-out ">
               <div className="w-24 h-24 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-6">
@@ -414,8 +422,8 @@ const ContactForm = () => {
   };
 
   return (
-  <section id="start-selling-now" className="py-20" style={{ background: 'linear-gradient(135deg, #f5deb3 0%, #deb887 100%)' }}>
-      <div className="max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="start-selling-now" className="py-12 sm:py-16 md:py-20" style={{ background: 'linear-gradient(135deg, #f5deb3 0%, #deb887 100%)' }}>
+      <div className="max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-lg p-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-red-600 mb-4">Start Selling Now</h2>
@@ -450,22 +458,24 @@ const ContactForm = () => {
             </div>
 
             <div className="flex gap-2">
-              <input
-                type="text"
-                value="91"
-                readOnly
-                className="w-16 px-3 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-600 text-center"
-              />
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Phone Number*"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-50 placeholder-gray-500"
-              />
+              <div className="flex flex-wrap gap-2 w-full">
+                <input
+                  type="text"
+                  value="91"
+                  readOnly
+                  className="w-16 px-3 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-600 text-center"
+                />
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Phone Number*"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="min-w-0 flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-50 placeholder-gray-500"
+                />
+              </div>
             </div>
 
             <div>
@@ -512,9 +522,9 @@ const ContactForm = () => {
 // Footer Component
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-12">
+    <footer className="bg-gray-800 text-white py-8 sm:py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           <div>
             <div className="flex items-center mb-4">
               <span className="text-2xl font-bold">eCom</span>
@@ -616,6 +626,32 @@ const App = () => {
           } />
         </Routes>
         <Footer />
+        {/* WhatsApp Floating Icon */}
+        <a
+          href="https://wa.me/+919795112583" // Replace with seller's WhatsApp number
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            position: 'fixed',
+            bottom: '24px',
+            right: '24px',
+            zIndex: 1000,
+            background: '#25D366',
+            borderRadius: '50%',
+            width: '56px',
+            height: '56px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+            cursor: 'pointer',
+          }}
+          aria-label="Chat with seller on WhatsApp"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="white">
+            <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.624 1.934 6.6L4 29l7.6-1.934A12.94 12.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.98 0-3.89-.52-5.56-1.51l-.39-.23-4.51 1.15 1.2-4.39-.25-.4A9.93 9.93 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.13-7.47c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.36-.01-.56-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.81 1.16 3c.14.19 2.01 3.07 4.88 4.18.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.65-.67 1.89-1.32.23-.65.23-1.21.16-1.32-.07-.11-.25-.18-.53-.32z" />
+          </svg>
+        </a>
       </div>
     </Router>
   );

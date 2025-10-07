@@ -17,9 +17,9 @@ import { HiOutlineUserGroup } from 'react-icons/hi';
 export default function EcommerceServices() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <div className="min-h-screen bg-white font-sans">
+  <div className="min-h-screen bg-white font-sans">
       {/* Top Bar */}
-      <div className="flex justify-between items-center px-4 sm:px-6 py-3 bg-white border-b border-gray-200">
+  <div className="flex justify-between items-center px-4 sm:px-6 py-3 bg-white border-b border-gray-200">
         <div className="flex items-center gap-2 text-green-600">
           <MdEmail className="text-base" />
           <span className="text-sm hidden sm:inline">ecomaccount@gmail.com</span>
@@ -35,7 +35,7 @@ export default function EcommerceServices() {
 
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-100">
-        <div className="px-4 sm:px-6 py-4">
+        <div className="px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
@@ -57,7 +57,7 @@ export default function EcommerceServices() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6 lg:gap-8">
               <div className="flex items-center gap-6 text-sm text-gray-700">
                 <span className="hover:text-green-600 cursor-pointer transition-colors">Home</span>
                 <div className="relative group">
@@ -90,7 +90,7 @@ export default function EcommerceServices() {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="lg:hidden flex items-center gap-4">
+            <div className="md:hidden flex items-center gap-3 sm:gap-4">
               <FaMagnifyingGlass className="text-gray-500 hover:text-green-600 cursor-pointer transition-colors" />
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -106,7 +106,7 @@ export default function EcommerceServices() {
           </div>
 
           {/* Mobile Navigation Menu */}
-          <div className={`lg:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+          <div className={`md:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 overflow-hidden'}`}>
             <div className="py-2 space-y-2 border-t border-gray-200">
               <a href="#" className="block px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors">
                 Home
@@ -143,19 +143,19 @@ export default function EcommerceServices() {
       </nav>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4 tracking-wide">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 sm:mb-4 tracking-wide">
             E-COMMERCE ACCOUNT MANAGEMENT SERVICES
           </h1>
-          <p className="text-gray-500 text-lg max-w-4xl mx-auto">
+          <p className="text-gray-500 text-base sm:text-lg max-w-2xl sm:max-w-4xl mx-auto">
             We manage several marketplaces such as Flipkart, Amazon, Snapdeal, Shopclues, Paytm, Meesho, Glowroad, and more.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {/* Service 1 */}
           <div className="flex items-start gap-6">
             <div className="flex-shrink-0">
