@@ -628,7 +628,7 @@ const App = () => {
         <Footer />
         {/* WhatsApp Floating Icon */}
         <a
-          href="https://wa.me/+919795112583" // Replace with seller's WhatsApp number
+          href="https://wa.me/+917068743705" // Replace with seller's WhatsApp number
           target="_blank"
           rel="noopener noreferrer"
           style={{
